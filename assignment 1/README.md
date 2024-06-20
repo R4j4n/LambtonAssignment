@@ -113,7 +113,41 @@
     
     Add classification report, confusion matrix for all of the stuffs. You know these i don't need to explain. 
 
+    **FINETUNINNG BERT**
 
     A bit difficult will be BERT ill explain here use this: 
 
+    For Classification, another model that we will be using is BERT. BERT stands for(....). 
+
+
+    Here, to use this BERT model as a classifier, we will freeze all the layers in the model (make the layers un-trainable) expect layer 10 and 11. This will allow only these layers to be fine-tuned during training.
+    On top of this frozen model, a linear layer is applied that acts as an output classifier layer. 
+
+    During the forward pass of the input tensor, at first it will go through the BERT model. Then we wil extract pooled output from the BERT model that represents the [CLS] token. Then, we apply dropout on the pooled output and pass it thought the classifier linear layer to get the logits. 
     
+    Draw Flow chart 
+
+    ```
+    input_tensor -> Bert model (Frozen expect 10 and 11) -> pooled output -> drop out -> linear layer --> logits. 
+    ```
+    - Loss Function: Cross entropy 
+    - logits are passed through the loss function to get labels and then we calculate accuracy and other metrics. 
+    - optimizer : AdamW
+    - AdamW optimizer with a learning rate of 2e-5 which is applied only to parameters that require gradients (unfrozen layers).
+
+
+
+    * Here are the train/test loss and accuracy, over 10 epochs. 
+
+    * PLOT THE IMAGE...........
+
+    * Display classification report and Confusion matrix. 
+
+
+
+7. Comparison 
+
+    Draw table. 
+    
+
+
