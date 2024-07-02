@@ -6,8 +6,8 @@ from nltk.tokenize import RegexpTokenizer
 
 
 class Tokenizer:
-    """tokenize text into words using a regular expression-based tokenizer
-    """
+    """tokenize text into words using a regular expression-based tokenizer"""
+
     def __init__(self) -> None:
         self.tokenizer = RegexpTokenizer("[\w']+")
 
@@ -24,11 +24,10 @@ class Tokenizer:
 
 
 class TextCleaner(Tokenizer):
-    """A class for cleaning text data, extending the Tokenizer
-    """
+    """A class for cleaning text data, extending the Tokenizer"""
+
     def __init__(self) -> None:
-        """Initialize the TextCleaner class by loading the acronyms and contractions dictionaries.
-        """
+        """Initialize the TextCleaner class by loading the acronyms and contractions dictionaries."""
         super().__init__()
 
         # the acronyms url
@@ -148,5 +147,3 @@ class TextCleaner(Tokenizer):
         text = self.convert_contractions(text=text)
 
         return text
-    
-
