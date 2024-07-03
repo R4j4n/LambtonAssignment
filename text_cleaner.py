@@ -3,6 +3,9 @@ import string
 import pandas as pd
 from typing import Iterable
 from nltk.tokenize import RegexpTokenizer
+import nltk
+
+nltk.download("stopwords")
 
 
 class Tokenizer:
